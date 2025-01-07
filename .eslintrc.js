@@ -22,12 +22,6 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     "no-unused-vars": "off",
-    "prettier/prettier": [
-      "error",
-      {},
-      {
-        "usePrettierrc": false
-      }
-    ]
+    "prettier/prettier": "off"
   }
 };
