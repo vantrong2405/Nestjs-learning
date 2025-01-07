@@ -8,6 +8,9 @@ export class AppController {
   @Get()
   @Render('index')
   root() {
-    return
+    // get data from services
+    const data = this.appService.getHello();
+    // pass data to the view template
+    return { message: data };
   }
 }
