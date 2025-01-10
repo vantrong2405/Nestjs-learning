@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -11,6 +12,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'public'));// get html ,css , js in public 
   app.setBaseViewsDir(join(__dirname, '..', 'views')); // get views
   app.setViewEngine('ejs');
+  app.useGlobalPipes(new ValidationPipe());
   await app.listen(PORT);
   console.log(`Server is running on http://localhost:${PORT}`);
 }

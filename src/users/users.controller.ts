@@ -7,12 +7,10 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   @Post()
-  create(
-    @Body('email') email: string,
-    @Body('password') password: string,
-    @Body('name') name: string
+  async create(
+    @Body() createUserDto: CreateUserDto
   ) {
-    const result = this.usersService.create(email, password, name);
+    const result = await this.usersService.create(createUserDto);
     return result
   }
 

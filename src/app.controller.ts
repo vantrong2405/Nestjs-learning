@@ -9,9 +9,7 @@ export class AppController {
     private configService: ConfigService
   ) {
     const dbUser = this.configService.get<string>('DB_USERNAME');
-    console.log("🚀 ~ AppController ~ dbUser:", dbUser)
     const dbHost = this.configService.get<string>('PORT');
-    console.log("🚀 ~ AppController ~ dbHost:", dbHost)
   }
 
   @Get()
