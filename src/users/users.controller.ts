@@ -10,8 +10,7 @@ export class UsersController {
   async create(
     @Body() createUserDto: CreateUserDto
   ) {
-    const result = await this.usersService.create(createUserDto);
-    return result
+    return await this.usersService.create(createUserDto);
   }
 
   @Get()
@@ -21,16 +20,16 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+  @Patch()
+  update(@Body() updateUserDto: UpdateUserDto) {
+    return this.usersService.update(updateUserDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+    return this.usersService.remove(id);
   }
 }
